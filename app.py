@@ -1,4 +1,5 @@
 import base64
+import json
 import os
 import re
 import typing
@@ -24,7 +25,7 @@ DEPLOY_COMMENT_REGEX = re.compile(
 
 
 @github_app.on("issue_comment.created")
-def deploy():
+def deploy_via_slash_command():
     """/deploy slash command for pull requests
 
     The deployment workflow must be called `deployment.yml`, triggger on workflow dispatch, and accept "environment"
@@ -70,3 +71,12 @@ def deploy():
         },
     )
     response.raise_for_status()
+
+@github_app.on("workflow_run.completed")
+def log_workflow_run_completed():
+    payload = github_app.payload
+    data = {
+        "name": payload["workflow"]["name"],
+        "conclustion": payload["workflow_run"]["conclusion"],
+    }
+    print(json.dumps(data, indent=2))
