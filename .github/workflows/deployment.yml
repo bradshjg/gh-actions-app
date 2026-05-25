@@ -1,0 +1,22 @@
+name: mock deploy
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        type: environment
+        required: true
+      use_cache:
+        description: 'Use cache'
+        type: boolean
+        default: true
+        required: true
+
+
+jobs:
+  mock-deploy:         # Job name
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Deploy
+        run: echo "Deployed!"

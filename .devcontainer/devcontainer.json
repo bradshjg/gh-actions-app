@@ -1,0 +1,14 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/python:3",
+  "forwardPorts": [5000],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "github.vscode-github-actions"
+      ]
+    }
+  },
+  "postCreateCommand": "./.devcontainer/post-create.sh",
+  "postStartCommand": "./.devcontainer/post-start.sh"
+}

@@ -1,0 +1,11 @@
+# Editor settings
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Unit test / coverage reports
+.pytest_cache/
+
+# Environment config
+.env
