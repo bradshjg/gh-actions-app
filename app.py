@@ -12,7 +12,7 @@ from flask_githubapp import GitHubApp
 
 app = Flask(__name__)
 
-app.config["GITHUBAPP_ID"] = int(os.environ["GITHUBAPP_ID"])
+app.config["GITHUBAPP_ID"] = os.environ["GITHUBAPP_ID"]
 app.config["GITHUBAPP_KEY"] = base64.b64decode(os.environ["GITHUBAPP_KEY_B64"])
 app.config["GITHUBAPP_SECRET"] = os.environ["GITHUBAPP_SECRET"]
 

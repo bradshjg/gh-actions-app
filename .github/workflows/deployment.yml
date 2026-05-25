@@ -19,4 +19,5 @@ jobs:
     environment: ${{ inputs.environment }}
     steps:
       - name: Deploy
-        run: echo "Deployed!"
+        run: |
+          echo 'Deployed to ${{inputs.environment}} using use_cache: ${{inputs.use_cache}}'
